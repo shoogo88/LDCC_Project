@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+<!-- 1. autowire를 위한 설정 -->
+	<context:annotation-config />
+	
+	<!-- 2. 어노테이션 자동 등록하기 (controller, service, repository 등이 있는 패키지를 설정)-->
+	<context:component-scan base-package="com.ldcc.shooping">
+            <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+            <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+            <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+     </context:component-scan>
+		
+	<!-- 3. DB연결 모듈 기존의 DB 연결 모듈을 dispatcher 부분에 설정해서 프로그램이 로드됨과 동시에 실행 --> 
+    <bean id ="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+      <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+      <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=shoppingMall"></property> 
+      <property name="username" value="test"></property>    
+      <property name="password" value="1234"></property>    
+   </bean>
+    <!-- mybatis SqlSessionFactoryBean -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- <property name="configLocation" value="classpath:/mybatis-config.xml"></property> -->
+        <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+    </bean>
+    
+    <!-- mybatis -->     
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+    </bean>
+    
+    <!-- 4. bean 등록 -->
+    <context:component-scan base-package="com.ldcc.service"></context:component-scan>
+    <context:component-scan base-package="com.ldcc.service.impl"></context:component-scan>
+	<context:component-scan base-package="com.ldcc.dao"></context:component-scan> 
+
+
+</beans>

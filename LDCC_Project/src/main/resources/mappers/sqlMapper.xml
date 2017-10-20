@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="UserDAO">
+
+
+
+<resultMap id="ldccUser"			type="com.ldcc.model.UserVO">	
+		 <result column="UINDEX"			property="uIndex" 		/>
+		 <result column="UID"				property="uId" 			/>
+		 <result column="UNAME"				property="uName" 			/>
+		 <result column="UMAIL"			property="uMail" 		/>
+		 <result column="UPWD"				property="uPwd" 			/>
+		 <result column="GENDER"			property="gender" 		/>
+		 <result column="BIRTH"				property="birth" 			/>
+		 <result column="CALLNUM"			property="callNum" 		/>
+		 <result column="REGISTDATE"				property="registDate" 			/>
+		 	<result column="USING"			property="using" 		/>
+		 <result column="MODIFYDATE"				property="modifyDate" 			/>
+	</resultMap> 
+
+<select id="selectUser" resultMap="ldccUser">
+
+
+					select  uId 
+					      , uName
+						  , uMail
+						  , uPwd
+						  , gender
+						  , birth
+						  , callNum
+						  , registDate
+						  , using
+						  , modifyDate
+					from user_table
+
+</select>
+
+
+ </mapper>
