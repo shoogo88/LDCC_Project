@@ -1,6 +1,7 @@
 package com.ldcc.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,37 @@ public class UserDAO {
 	public List<UserVO> userList() throws Exception{
 		return sqlSession.selectList("UserDAO.selectUserList");
 	}
+	
 	 public UserVO selectOne(String uId) throws Exception{
 			return sqlSession.selectOne("userDAO.selectUserOne", uId);
 	 }
+	 
+	 
+		@SuppressWarnings("unchecked")
 	 public void registUser(UserVO vo) throws Exception{
-		 sqlSession.insert("userDAO", vo);
+
+
+		 sqlSession.insert("UserDAO.registUser", vo);
 	 }
+		
+	 public void insertBasket(String pId) throws Exception{
+		 sqlSession.insert("UserDAO", pId);
+	 }
+	 
+	 public void modifyBasket(String pId, int count) throws Exception{
+		 sqlSession.update("userDAO", pId);
+	 }
+	 
+	 public void deleteBasket(String pId, int count) throws Exception{
+		 sqlSession.update("userDAO", pId);
+	 }
+	 
+	 public UserVO login(UserVO vo) throws Exception{
+		
+		 
+		 return sqlSession.selectOne("UserDAO.loginCheck",vo );
+		 
+		
+	 }
+	 
 }

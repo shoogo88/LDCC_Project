@@ -56,20 +56,70 @@
 
 </select>
 
+
+<select id="loginCheck" resultMap="ldccUser" parameterType = "com.ldcc.model.UserVO" >
+
+
+					select  uId 
+					      , uName
+						  , uMail
+						  , uPwd
+						  , gender
+						  , birth
+						  , callNum
+						  , registDate
+						  , using
+						  , modifyDate
+					from user_table
+					where uId = #{uId} and uPwd = #{uPwd}
+
+</select>
+
+
 <insert id= "registUser" parameterType = "com.ldcc.model.UserVO">
 		
-		insert into user_table 
-				        values( #{uId}, 
-				        			#{uName}
+		insert into user_table(uId, uName , uMail, uPwd, gender, birth, callNum, registDate, using, modifyDate) 
+				        values( #{uId}
+				        			, #{uName}
 				        			, #{uMail}
 				        			, #{uPwd}
 				        			, #{gender}
 				        			, #{birth}
 				        			, #{callNum}
-				        			, #{registDate}
-				        			, #{using}
-				        			,#{modifyDate} )
+				        			, getdate()
+				        			, 1
+				        			, getdate() )
 </insert>
+
+<insert id = "putBasket" parameterType = "hashmap">
+
+	insert into basket_table(pId, uId, pCount)
+					values (  #{pId},
+								, #{uId}
+								, #{pCount})
+					
+
+</insert>
+
+<update id="updateBasket" parameterType="hashmap">
+
+		update basket_table
+
+		set  pCount = #{pCount}
+
+		where pId = #{pId} and uId = #{uId}
+
+	</update>
+	
+<update id="deleteBasket" parameterType="hashmap">
+
+		update basket_table
+
+		set  pCount = #{pCount}
+
+		where pId = #{pId} and uId = #{uId}
+
+	</update>
 
 
  </mapper>

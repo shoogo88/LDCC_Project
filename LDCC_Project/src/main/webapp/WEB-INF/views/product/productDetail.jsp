@@ -9,9 +9,8 @@
     <h2>상품 상세정보</h2>
     <table border="1">
         <tr>
-            <td>
-                <img src="6.jpg" width="340px" height="300px">
-            </td>
+            <td><img src= <c:url value = "/resources/image/6.jpg"  />  width="340ox" height="300px"></td>
+            
             <td>
                 <table border="1" style="height: 300px; width: 400px;">
                     <tr align="center">
@@ -32,8 +31,8 @@
                             <form name="form1" method="post" action="$insert.do">
                                 <input type="hidden" name="pId" value="${oneProduct.pId}">
                                 <select name="amount">
-                                    <c:forEach begin="1" end="10" var="i">
-                                        <option value="${i}">${i}</option>
+                                    <c:forEach begin="1" end="10" var="num">
+                                        <option value="${num}">${num}</option>
                                     </c:forEach>
                                 </select>&nbsp;개
                                 <input type="submit" value="장바구니에 담기">

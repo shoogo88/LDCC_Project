@@ -102,14 +102,14 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<c:url value='/ldcc/main/main.do'/>">Home</a>
+                        <a class="page-scroll" href="<c:url value='/lotte'/>">Home</a>
                     </li>
                 	<li>
-                        <a class="page-scroll" href="<c:url value='/ldcc/main/main.do'/>">Cart</a>
+                        <a class="page-scroll" href="<c:url value='/product'/>">Cart</a>
                     </li>
                 	
                     <li>
-                        <a class="page-scroll" href="<c:url value='/ldcc/main/main.do'/>">PayInfo</a>
+                        <a class="page-scroll" href="<c:url value='/boardTest'/>">Board</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="<c:url value='/ldcc/main/main.do'/>" style="color:red;">Logout</a>
@@ -129,7 +129,7 @@
                     <div class="panel panel-default" style="text-align: left;">
                         <div class="panel-heading">
                             상품리스트
-                            <button width = "10" ><a href="registPage">상품등록</a></button>
+                            <button width = "10" ><a href="registPage" >상품등록</a></button>
                         </div>
 
                         <!-- /.panel-heading -->
@@ -162,13 +162,10 @@
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
-                        
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             
 	</section>
 	

@@ -23,12 +23,38 @@ public class UserServiceImpl  implements UserService{
 	public UserVO selectOne(String uId) throws Exception{
 		return dao.selectOne(uId);
 		
-	
 	}
 	@Override
 	public void registUser(UserVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		dao.registUser(vo);
 	}
-	
+	public void insertBasket(String pId) throws Exception{
+		dao.insertBasket(pId);
+	}
+	@Override
+	public void deleteBasket(String pId) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void modifyBasket(String pId, int count) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void searchID(String uMail) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void searchPW(String uMail, String callNum) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public UserVO login(UserVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.login(vo);
+	}
 }

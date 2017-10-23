@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ldcc.model.ProductVO;
 import javax.servlet.http.*;
+
+
 public interface ProductService {
 	@Autowired(required =false)
 

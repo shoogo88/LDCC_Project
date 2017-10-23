@@ -2,9 +2,9 @@ package com.ldcc.model;
 
 public class UserVO {
 
-		private String uIndex;
+		
 		private String uId;
-		private String  uName;
+		private String uName;
 		private String uMail;
 		private String uPwd;
 		private String gender;
@@ -15,12 +15,7 @@ public class UserVO {
 		private String modifyDate;
 		
 		
-		public String getuIndex() {
-			return uIndex;
-		}
-		public void setuIndex(String uIndex) {
-			this.uIndex = uIndex;
-		}
+	
 		public String getuId() {
 			return uId;
 		}
@@ -63,10 +58,10 @@ public class UserVO {
 		public void setCallNum(String callNum) {
 			this.callNum = callNum;
 		}
-		public String getRegist_date() {
+		public String getRegistDate() {
 			return registDate;
 		}
-		public void setRegist_date(String registDate) {
+		public void setRegistDate(String registDate) {
 			this.registDate = registDate;
 		}
 		public String getUsing() {
@@ -75,10 +70,10 @@ public class UserVO {
 		public void setUsing(String using) {
 			this.using = using;
 		}
-		public String getModify_date() {
+		public String getModifyDate() {
 			return modifyDate;
 		}
-		public void setModify_date(String modifyDate) {
+		public void setModifyDate(String modifyDate) {
 			this.modifyDate = modifyDate;
 		}
 	
